@@ -13,7 +13,7 @@ int check_cycle(listint_t *list)
 	listint_t *rabbit = current->next;
 	listint_t *turtle = current;
 
-	if (!list || !turtle)
+	if (!list || !rabbit)
 		return (0);
 
 
