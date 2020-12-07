@@ -9,23 +9,22 @@
 */
 int check_cycle(listint_t *list)
 {
-	listint_t *current = list;
-	listint_t *rabbit = current->next;
-	listint_t *turtle = current;
 
-	if (!list || !rabbit)
+	if (!list)
 		return (0);
+
+	listint_t *rabbit = list->next;
+	listint_t *turtle = list;
 
 
 
 	while (1)
 	{
 		if (!rabbit || !rabbit->next)
-			break;
+			return (0);
 		if (rabbit == turtle || rabbit->next == turtle)
 			return (1);
 		turtle = turtle->next;
 		rabbit = rabbit->next->next;
 	}
-	return (0);
 }
