@@ -10,12 +10,12 @@
 int check_cycle(listint_t *list)
 {
 
-	if (!list)
-		return (0);
 
 	listint_t *rabbit = list->next;
 	listint_t *turtle = list;
 
+	if (!list)
+		return (0);
 
 
 	while (1)
