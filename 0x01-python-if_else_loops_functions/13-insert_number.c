@@ -14,19 +14,23 @@ listint_t *insert_node(listint_t **head, int number)
 	listint_t *current = NULL, *previous = NULL;
 	listint_t *newNode = NULL;
 
-	if (!*head)
-		return (NULL);
 	current = *head;
+	previous = *head;
 	newNode = malloc(sizeof(listint_t));
 	if (!newNode)
 		return (NULL);
 	newNode->n = number;
 
-	if ((*head)->n >= number)
+	if (!current)
 	{
-		printf("enter\n");
-		newNode->next = current;
+		newNode->next = NULL;
 		*head = newNode;
+		return (*head);
+	}
+	else if ((*head)->n > number)
+	{
+		newNode->next = (*head);
+		(*head) = newNode;
 		return (*head);
 	}
 	while (current)
