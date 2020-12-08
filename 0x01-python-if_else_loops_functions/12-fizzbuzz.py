@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 def fizzbuzz():
     for nb in range(1, 101):
         if (nb % 15 == 0):
