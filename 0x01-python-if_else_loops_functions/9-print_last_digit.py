@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 def print_last_digit(number):
     nb = number
     last_digit = nb % 10
