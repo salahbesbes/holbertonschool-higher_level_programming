@@ -3,7 +3,6 @@ if __name__ == "__main__":
     import sys
 
     args = sys.argv
-    length = len(args)
     print(length)
     if (len(args) == 1):
         print("{} arguments.".format(length - 1))
