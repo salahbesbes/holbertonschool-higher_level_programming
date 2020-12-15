@@ -14,7 +14,6 @@ int check_both_nodes(listint_t *head, int idx1, int idx2)
 	listint_t *current = NULL;
 	listint_t *corespond = NULL;
 
-	printf("idx1 %d  , idx2 %d\n", idx1, idx2);
 	if (idx1 == idx2)
 		return (1);
 	for (i = 0; i < idx2; i++)
@@ -57,6 +56,8 @@ int is_palindrome(listint_t **head)
 		corespond = corespond->next;
 		length++; /* we calculate the length */
 	}
+	if (length == 1)
+		return (0);
 	Index2 = length;
 	while (i < length / 2)
 	{
