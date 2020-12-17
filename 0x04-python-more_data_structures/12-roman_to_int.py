@@ -17,12 +17,10 @@ def roman_to_int(roman_string):
     # exp: big_val = (val, idx) => (5, 2)
     i = 0
     big_val = best_score(roman_string, dic_roman, 0)
-    print(big_val)
     for ch in roman_string:
         if (ch not in dic_roman.keys()):
             return 0
         if i == big_val[1] and i > 0:
-            print(big_val[0])
             big_val = best_score(roman_string, dic_roman, big_val[1])
             summ = big_val[0] - summ
         else:
