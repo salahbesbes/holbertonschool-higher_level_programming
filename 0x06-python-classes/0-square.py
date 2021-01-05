@@ -5,4 +5,3 @@
 class Square:
     """ define a square shape"""
     pass
-
