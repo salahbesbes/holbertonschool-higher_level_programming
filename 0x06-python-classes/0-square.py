@@ -2,6 +2,7 @@
 """Empty module"""
 
 
+
 class Square:
-    """ Square class """
+    """ define a square shape"""
     pass
