@@ -69,3 +69,20 @@ class Square:
         if self.__size == 0:
             print()
 
+    def __str__(self):
+        """ print a square of # """
+        result = ""
+        for i in range(self.__position[1]):
+            result += result.join('\n')
+        for i in range(self.__size):
+            for j in range(self.__size + self.__position[0]):
+                if j < self.__position[0]:
+                    result += result.join(' ')
+                else:
+                    result += result.join('#')
+            if i != self.__size - 1:
+                result += result.join('\n')
+
+        if self.__size == 0:
+            result += result.join('\n')
+        return "{}".format(result)
