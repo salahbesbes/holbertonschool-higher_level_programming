@@ -69,7 +69,7 @@ class Square:
         if self.__size == 0:
             print()
 
-    def __str__(self):
+    def __repr__(self):
         """ print a square of # """
         result = ""
         for i in range(self.__position[1]):
