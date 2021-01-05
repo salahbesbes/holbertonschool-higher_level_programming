@@ -80,8 +80,7 @@ class Square:
                     result += result.join(' ')
                 else:
                     result += result.join('#')
-            if i != self.__size - 1:
-                result += result.join('\n')
+            result += result.join('\n')
 
         if self.__size == 0:
             result += result.join('\n')
