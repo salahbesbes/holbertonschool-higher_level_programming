@@ -73,7 +73,7 @@ class Square:
         """ print a square of # """
         result = ""
         if self.__size == 0:
-            result += result.join('\n')
+            pass
         else:
             for i in range(self.__position[1]):
                 result += result.join('\n')
