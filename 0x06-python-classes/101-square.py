@@ -83,6 +83,7 @@ class Square:
                         result += result.join(' ')
                     else:
                         result += result.join('#')
-                result += result.join('\n')
+                if i != self.__size - 1:
+                    result += result.join('\n')
 
-        return "{}".format(result)
+        return result
