@@ -1,9 +1,15 @@
 #!/usr/bin/python3
+""" module is empty """
 
 
 class Square:
-    """ define the size """
+    """ private attr size """
+
     def __init__(self, size=0):
+        """ init all attributes
+        args:
+            size (int): size of square
+        """
         if isinstance(size, int):
             if size >= 0:
                 self.__size = size
