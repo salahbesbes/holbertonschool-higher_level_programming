@@ -10,14 +10,15 @@ class Square:
             size (int): size of square
             position (int): tuple
         """
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
         """ getter size """
         return self.__size
 
+    @property
     def position(self):
         """ getter position """
         return self.__size
@@ -36,38 +37,37 @@ class Square:
         else:
             raise TypeError("size must be an integer")
 
+    @position.setter
     def position(self, position):
         """ setter position
             Args:
                 position(tuple): tuple
         """
-        if isinstance(position, tuple) and len(position) == 2:
-            if position[0] >= 0 and position[1] >= 0:
-                self.__position = position
-            else:
-                raise TypeError(
-                    "position must be a tuple of 2 positive integers")
+        if isinstance(position, tuple) and len(position) == 2 and \
+                isinstance(position[0], int) and position[0] >= 0 and \
+                isinstance(position[1], int) and position[1] >= 0:
+            self.__position = position
         else:
             raise TypeError("position must be a tuple of 2 positive integers")
 
     def area(self):
-        """ calculate the area of the square """
+        """ Calculate the area """
         return self.__size * self.__size
 
     def my_print(self):
         """ print a square of # """
-        for i in range(self.__position[1]):
-            print()
-        for i in range(self.__size):
-            for j in range(self.__size + self.__position[0]):
-                if j < self.__position[0]:
-                    print(" ", end="")
-                else:
-                    print("#", end="")
-            print()
-
         if self.__size == 0:
             print()
+        else:
+            for i in range(self.__position[1]):
+                print()
+            for i in range(self.__size):
+                for j in range(self.__size + self.__position[0]):
+                    if j < self.__position[0]:
+                        print(" ", end="")
+                    else:
+                        print("#", end="")
+                print()
 
     def __repr__(self):
         """ print a square of # """
