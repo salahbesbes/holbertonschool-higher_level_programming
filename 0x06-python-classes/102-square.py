@@ -32,9 +32,8 @@ class Square:
 
     def area(self):
         """ calculate the area of the square """
-        return self.__size * self.__size
+        return self.__size * 2
 
-    # __lt__ ( < ), __le__ ( <= ), __gt__ ( > ), and __ge__ ( > )
     def __eq__(self, o) -> bool:
         return self.__size == o.area()
 
