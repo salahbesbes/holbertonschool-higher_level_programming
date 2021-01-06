@@ -10,8 +10,8 @@ class Square:
             size (int): size of square
             position (int): tuple
         """
-        self.size = size
-        self.position = position
+        self.__size = size
+        self.__position = position
 
     @property
     def size(self):
@@ -52,7 +52,7 @@ class Square:
 
     def area(self):
         """ Calculate the area """
-        return self.__size * self.__size
+        return self.__size ** 2
 
     def my_print(self):
         """ print a square of # """
