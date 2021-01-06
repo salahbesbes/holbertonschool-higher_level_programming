@@ -46,7 +46,6 @@ class SinglyLinkedList:
 
     def __init__(self):
         self.head = None
-        pass
 
     def sorted_insert(self, value):
         newNode = Node(value)
@@ -67,8 +66,9 @@ class SinglyLinkedList:
     def __str__(self):
         h = self.head
         s = ""
-        while h.next_node is not None:
-            s += "{}\n".format(h.data)
-            h = h.next_node
-        s += "{}".format(h.data)
+        if h is not None:
+            while h.next_node is not None:
+                s += "{}\n".format(h.data)
+                h = h.next_node
+            s += "{}".format(h.data)
         return s
