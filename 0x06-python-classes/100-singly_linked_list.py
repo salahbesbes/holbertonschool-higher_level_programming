@@ -35,7 +35,8 @@ class Node:
     @next_node.setter
     def next_node(self, next_node):
         """ setter next_node """
-        if next_node is not None and not isinstance(next_node, Node):
+        if next_node is not None \
+                and not isinstance(next_node, Node):
             raise TypeError("next_node must be a Node object")
         else:
             self.__next_node = next_node
