@@ -35,7 +35,7 @@ class Square:
         return self.__size * 2
 
     def __eq__(self, o) -> bool:
-        return self.__size == o.area()
+        return self.area() == o.area()
 
     def __ne__(self, o) -> bool:
         return self.area() != o.area()
