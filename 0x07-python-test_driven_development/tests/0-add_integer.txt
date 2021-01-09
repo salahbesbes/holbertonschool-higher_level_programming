@@ -38,14 +38,21 @@ float 'NaN':
 
 others
 ======
-
 " add_integer " raises an exception when a or b are not int or float
 
+empty:
+    >>> add_integer()
+    >>> 
 boolean:
     >>> add_integer(True, 0)
     Traceback (most recent call last):
     ...
+    TypeError: add_integer() missing 1 required positional argument: 'a'
+    
+    Traceback (most recent call last):
+    ...
     TypeError: a must be an integer
+
     >>> add_integer(5, False)
     Traceback (most recent call last):
     ...

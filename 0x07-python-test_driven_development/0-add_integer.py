@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+""" no module """
 """
 add_integer:
     Checks if parameters are int
