@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-""" no module 
-
-
-
+"""
+add_integer:
+    Checks if parameters are int
+    Returns sum of parameters
 """
 
 

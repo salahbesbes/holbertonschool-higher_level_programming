@@ -24,13 +24,19 @@ It also works with floating-point values.
     >>> add_integer(2.0, 3)
     5
 
+float 'NaN':
+    >>> add_integer(float("dddd"))
+    Traceback (most recent call last):
+    ...
+    ValueError: could not convert string to float: 'dddd'
+
+
 others
 ======
 
 " add_integer " raises an exception when a or b are not int or float
 
-::
-
+boolean:
     >>> add_integer(True, 0)
     Traceback (most recent call last):
     ...
@@ -39,13 +45,21 @@ others
     Traceback (most recent call last):
     ...
     TypeError: b must be an integer
+
+string:
     >>> add_integer(5.6, "test")
     Traceback (most recent call last):
     ...
     TypeError: b must be an integer
-    >>> add_integer(None, None)
+
+    >>> add_integer("hhhhh")
     Traceback (most recent call last):
     ...
     TypeError: a must be an integer
 
-::
+None:    
+    >>> add_integer(None)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+    
