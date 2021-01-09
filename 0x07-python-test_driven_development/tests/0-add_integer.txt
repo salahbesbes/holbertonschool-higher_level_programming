@@ -22,7 +22,7 @@ float 'NaN':
     >>> add_integer(float("dddd"))
     Traceback (most recent call last):
     ...
-    TypeError: could not convert string to float: 
+    TypeError: a must be an integer 
     
     >>> add_integer(float(None))
     Traceback (most recent call last):
