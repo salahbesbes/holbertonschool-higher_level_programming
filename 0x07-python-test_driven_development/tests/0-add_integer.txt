@@ -19,7 +19,10 @@ It also works with floating-point values.
     5
 
 float 'NaN':
-
+    >>> add_integer(float("dddd"))
+    Traceback (most recent call last):
+    ...
+    TypeError: could not convert string to float: 
     
     >>> add_integer(float(None))
     Traceback (most recent call last):
