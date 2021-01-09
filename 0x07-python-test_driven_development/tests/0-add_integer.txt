@@ -8,10 +8,6 @@ This library is very simple, since it only has one function called
 Numbers
 =======
 
-    >>> add_integer = __import__('0-add_integer').add_integer
-    >>> add_integer(2, 3)
-    5
-
 It also works with floating-point values.
 
     >>> add_integer = __import__('0-add_integer').add_integer
@@ -55,7 +51,7 @@ The second argument is optional - by default, it is 98.
 
     >>> add_integer(2)
     100
-    
+
     >>> add_integer(2.0, 3)
     5
 
