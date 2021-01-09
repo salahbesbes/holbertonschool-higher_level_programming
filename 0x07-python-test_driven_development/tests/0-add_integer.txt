@@ -8,18 +8,12 @@ This library is very simple, since it only has one function called
 Numbers
 =======
 
-``my_function()`` returns the product of its arguments.  For numbers,
-that value is equivalent to using the ``*`` operator.
-
-::
-
     >>> add_integer = __import__('0-add_integer').add_integer
     >>> add_integer(2, 3)
     5
 
 It also works with floating-point values.
 
-::
 
     >>> add_integer(2.0, 3)
     5
@@ -38,8 +32,6 @@ float 'NaN':
 
 others
 ======
-" add_integer " raises an exception when a or b are not int or float
-
     
 boolean:
     >>> add_integer(True, 0)
