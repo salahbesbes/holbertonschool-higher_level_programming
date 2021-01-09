@@ -27,7 +27,7 @@ float 'NaN':
     >>> add_integer(float(None))
     Traceback (most recent call last):
     ...
-    TypeError: float() argument must be a string or a number, not 'NoneType'
+    TypeError: a must be an integer
 
 
 others
