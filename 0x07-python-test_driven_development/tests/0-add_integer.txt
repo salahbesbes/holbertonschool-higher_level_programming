@@ -19,16 +19,15 @@ It also works with floating-point values.
     5
 
 float 'NaN':
-    >>> add_integer(float("dddd"))
+    >>> add_integer(float('nan'))
     Traceback (most recent call last):
     ...
-    TypeError: a must be an integer 
+    ValueError: cannot convert float NaN to integer
     
-    >>> add_integer(float(None))
+    >>> add_integer(2, float('inf'))
     Traceback (most recent call last):
     ...
-    TypeError: a must be an integer
-
+    OverflowError: cannot convert float infinity to integer
 
 others
 ======
