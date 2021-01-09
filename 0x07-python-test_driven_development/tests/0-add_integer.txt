@@ -1,0 +1,51 @@
+===============================
+ How to Use doctest_in_help.py
+===============================
+
+This library is very simple, since it only has one function called
+``my_function()``.
+
+Numbers
+=======
+
+``my_function()`` returns the product of its arguments.  For numbers,
+that value is equivalent to using the ``*`` operator.
+
+::
+
+    >>> add_integer = __import__('0-add_integer').add_integer
+    >>> add_integer(2, 3)
+    5
+
+It also works with floating-point values.
+
+::
+
+    >>> add_integer(2.0, 3)
+    5
+
+others
+======
+
+" add_integer " raises an exception when a or b are not int or float
+
+::
+
+    >>> add_integer(True, 0)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+    >>> add_integer(5, False)
+    Traceback (most recent call last):
+    ...
+    TypeError: b must be an integer
+    >>> add_integer(5.6, "test")
+    Traceback (most recent call last):
+    ...
+    TypeError: b must be an integer
+    >>> add_integer(None, None)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+::
