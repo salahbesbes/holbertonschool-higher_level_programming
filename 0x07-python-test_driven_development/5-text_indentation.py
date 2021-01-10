@@ -6,18 +6,13 @@ def text_indentation(text):
     
     if not isinstance(text, str):
         raise TypeError("text must be a string")
-    line = ""
+    prev = 0
     for i, ch in enumerate(text):
-        line += ch
-        if ch in ['.', ':', '?']:
-            if line[0] == " " and text[0] == " ":
-                print(line[1:])
-            else:
-                print(line)
-            line = ""
+        if ch in ['?', ':', '.']:
+            print(text[prev:i])
             print()
-    if line[0] == " ":
-        print(line[1:], end="")
-    else:
-        print(line, end="")
-
+            if text[i + 1] == " ":
+                prev = i + 2
+            else:
+                prev = i + 1
+    print(text[prev:], end="")
