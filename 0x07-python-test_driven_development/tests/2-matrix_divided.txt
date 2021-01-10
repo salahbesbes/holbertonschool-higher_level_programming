@@ -1,0 +1,53 @@
+matrix_divided
+Test present: matrix= list of lists of integers with one float(inf/nan) / div= integer
+Test present: matrix= list of lists of integers with one float(inf/nan) / div= float(inf/nan)
+==============
+
+
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+    >>> matrix_divided([[1, 2, 3], [4, 5, 6]], 3)
+    [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+    >>> matrix_divided([[3]], 3)
+    [[1.0]]
+
+    >>> matrix_divided([[3, 9], [12, 15]], -3)
+    [[-1.0, -3.0], [-4.0, -5.0]]
+ 
+    >>> matrix_divided([[3, 9], [12, 15, 3]], 6)
+    Traceback (most recent call last):
+    ...
+    TypeError: Each row of the matrix must have the same size
+
+    >>> matrix_divided([[3, "9"], [15, 3]], 3)
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    >>> matrix_divided([[25, 20], [15, 5]], 5)
+    [[5.0, 4.0], [3.0, 1.0]]
+
+    >>> matrix_divided([[3, 9], [15, 3]], "9")
+    Traceback (most recent call last):
+    ...
+    TypeError: div must be a number
+
+    >>> matrix_divided([[3, 9], [15, 3]], 0)
+    Traceback (most recent call last):
+    ...
+    ZeroDivisionError: division by zero
+
+    >>> matrix_divided([3.0, 9.0, 15.0, 3.0], 9)
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    >>> matrix_divided([[3, 9], [15, 3, 9, 12]], 0)
+    Traceback (most recent call last):
+    ...
+    TypeError: Each row of the matrix must have the same size
+
+    >>> matrix_divided([[3, 9], [15, 3]], float('inf'))
+    [[0.0, 0.0], [0.0, 0.0]]
+
+    
