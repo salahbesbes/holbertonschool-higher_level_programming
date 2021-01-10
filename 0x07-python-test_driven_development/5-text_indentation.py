@@ -2,17 +2,16 @@
 """ no module """
 
 
+from typing import Text
+
+
 def text_indentation(text):
     
     if not isinstance(text, str):
         raise TypeError("text must be a string")
-    prev = 0
     for i, ch in enumerate(text):
-        if ch in ['?', ':', '.']:
-            print(text[prev:i])
+        if not (text[i] == ' ' and text[i - 1] in [':', '.', '?']):
+            print(text[i], end="")
+        if text[i] in [':', '.', '?']:
             print()
-            if text[i + 1] == " ":
-                prev = i + 2
-            else:
-                prev = i + 1
-    print(text[prev:], end="")
+            print()
