@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-""" no module """
+""" no module 
+"""
 
 
 class Rectangle:
@@ -7,9 +8,9 @@ class Rectangle:
     def __init__(self, width=0, height=0) -> None:
         """init Class
 
-        Args:
-            width (int, optional): width. Defaults to 0.
-            height (int, optional): height. Defaults to 0.
+            Args:
+                width (int, optional): width. Defaults to 0.
+                height (int, optional): height. Defaults to 0.
         """
         self.width = width
         self.height = height
@@ -23,8 +24,8 @@ class Rectangle:
     def width(self, value):
         """set width
 
-        Args:
-            value (int): width
+            Args:
+                value (int): width
         """
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
@@ -41,8 +42,8 @@ class Rectangle:
     def height(self, value):
         """ set height
 
-        Args:
-            value (int): height
+            Args:
+                value (int): height
         """
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
