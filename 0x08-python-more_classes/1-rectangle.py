@@ -5,8 +5,14 @@
 class Rectangle:
     """ create rectangle """
     def __init__(self, width=0, height=0) -> None:
-        self.width = width
-        self.height = height
+        """init Class
+
+        Args:
+            width (int, optional): width. Defaults to 0.
+            height (int, optional): height. Defaults to 0.
+        """
+        self.__width = width
+        self.__height = height
 
     @property
     def width(self):
