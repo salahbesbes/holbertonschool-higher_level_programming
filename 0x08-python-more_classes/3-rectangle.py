@@ -11,6 +11,7 @@ class Rectangle:
     @property
     def width(self):
         return self.__width
+
     @width.setter
     def width(self, value):
         if not isinstance(self.__width, int):
@@ -41,6 +42,8 @@ class Rectangle:
         
     def __str__(self) -> str:
         res = ""
+        if self.__height == 0:
+            return res
         for row in range(self.__height):
             res += '#' * self.__width
             res += '\n'
