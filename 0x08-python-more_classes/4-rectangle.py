@@ -72,4 +72,5 @@ class Rectangle:
 
     def __repr__(self) -> str:
         """ use of repr() """
-        return "{}({}, {})".format(__class__.__name__, self.__width, self.__height)
+        return "{}({}, {})".format(__class__.__name__,
+                                   self.__width, self.__height)
