@@ -71,7 +71,8 @@ class Rectangle:
         return res[:len(res) - 1]
 
     def __repr__(self) -> str:
-        className = eval("self.__class__.__name__")
+        """ use of repr() """
+        class_name = eval("self.__class__.__name__")
         height = str(eval("self.height"))
         width = str(eval("self.width"))
-        return className + '(' + width  + ', ' + height + ')'
+        return class_name + '(' + width  + ', ' + height + ')'
