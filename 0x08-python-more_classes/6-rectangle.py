@@ -58,7 +58,6 @@ class Rectangle:
         return className + '(' + width  + ', ' + height + ')'
     
     def __del__(self):
+        """ del instance """
         print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
-        
-    
