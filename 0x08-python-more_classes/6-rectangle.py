@@ -76,7 +76,7 @@ class Rectangle:
         """ use of repr() """
         return "{}({}, {})".format(__class__.__name__,
                                    self.__width, self.__height)
-    
+
     def __del__(self):
         """ del instance """
         print("Bye rectangle...")
