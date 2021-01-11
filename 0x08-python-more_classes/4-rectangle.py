@@ -72,7 +72,4 @@ class Rectangle:
 
     def __repr__(self) -> str:
         """ use of repr() """
-        class_name = eval("self.__class__.__name__")
-        height = str(eval("self.height"))
-        width = str(eval("self.width"))
-        return class_name + '(' + width  + ', ' + height + ')'
+        return "{}({}, {})".format(__class__.__name__, self.__width, self.__height)
