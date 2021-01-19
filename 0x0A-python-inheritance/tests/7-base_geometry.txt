@@ -47,7 +47,7 @@ Traceback (most recent call last):
 ...
 TypeError: name must be an integer
 
-	>>> bg.integer_validator("age", 0)
+>>> bg.integer_validator("age", 0)
 Traceback (most recent call last):
 ...
 ValueError: age must be greater than 0
@@ -73,13 +73,12 @@ True
 >>> hasattr(bg, "__class__")
 True
 
->>> b = BG()
->>> b.area()
+>>> bg.area()
 Traceback (most recent call last):
 ...
 Exception: area() is not implemented
 
->>> b.area(1)
+>>> bg.area(1)
 Traceback (most recent call last):
 ...
 TypeError: area() takes 1 positional argument but 2 were given
