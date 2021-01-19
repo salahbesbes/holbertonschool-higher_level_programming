@@ -1,4 +1,20 @@
+Importing the function from the module:
+    >>> MyList = __import__("1-my_list").MyList
 
+Testing for module docstring:
+    >>> m = __import__("1-my_list").__doc__
+    >>> len(m) > 1
+    True
+
+Testing for class docstring:
+    >>> c = __import__("1-my_list").MyList.__doc__
+    >>> len(c) > 1
+    True
+
+Testing for method docstring:
+	>>> mod = __import__("1-my_list").MyList.print_sorted.__doc__
+	>>> len(mod) > 1
+	True
 
 
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
@@ -35,3 +51,15 @@ ValueError: distance must be greater than 0
 Traceback (most recent call last):
 ...
 TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+
+>>> hasattr(bg, '__dict__')
+True
+
+
+>>> type(bg).__name__ == "BaseGeometry"
+True
+
+>>> hasattr(bg, "__class__")
+True
+
