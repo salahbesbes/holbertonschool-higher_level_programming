@@ -1,18 +1,17 @@
 Importing the function from the module:
-    >>> MyList = __import__("1-my_list").MyList
 
 Testing for module docstring:
-    >>> m = __import__("1-my_list").__doc__
+    >>> m = __import__("7-base_geometry").__doc__
     >>> len(m) >= 1
     True
 
 Testing for class docstring:
-    >>> c = __import__("1-my_list").MyList.__doc__
+    >>> c = __import__("7-base_geometry").MyList.__doc__
     >>> len(c) >= 1
     True
 
 Testing for method docstring:
-	>>> mod = __import__("1-my_list").MyList.print_sorted.__doc__
+	>>> mod = __import__("7-base_geometry").MyList.print_sorted.__doc__
 	>>> len(mod) >= 1
 	True
 
@@ -42,10 +41,10 @@ Traceback (most recent call last):
 ...
 TypeError: name must be an integer
 
->>> bg.integer_validator("name", complex(5, 6))
+>>> bg.integer_validator("cccc", complex(5, 6))
 Traceback (most recent call last):
 ...
-TypeError: name must be an integer
+TypeError: ccc must be an integer
 
 >>> bg.integer_validator("age", 0)
 Traceback (most recent call last):
