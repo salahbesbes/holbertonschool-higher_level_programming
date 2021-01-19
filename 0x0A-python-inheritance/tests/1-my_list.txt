@@ -1,3 +1,23 @@
-	>>> MyList = __import__('1-my_list').MyList
+
+
+>>> MyList = __import__('1-my_list').MyList
+>>> new = MyList()
+>>> new.append(5)
+>>> new.append(4)
+>>> new.append(3)
+>>> new.append(2)
+>>> new.append(1)
+>>> print(new)
+[5, 4, 3, 2, 1]
+>>> new.print_sorted()
+[1, 2, 3, 4, 5]
+>>> print(new)
+[5, 4, 3, 2, 1]
+>>> new.pop(0)
+5
+>>> print(new)
+[4, 3, 2, 1]
+>>> new.index(4)
+0
 
 
