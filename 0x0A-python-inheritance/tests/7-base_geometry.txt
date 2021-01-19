@@ -11,6 +11,16 @@ Traceback (most recent call last):
 ...
 TypeError: name must be an integer
 
+>>> bg.integer_validator("name", True)
+Traceback (most recent call last):
+...
+TypeError: name must be an integer
+
+>>> bg.integer_validator("name", (5,6))
+Traceback (most recent call last):
+...
+TypeError: name must be an integer
+
 >>> bg.integer_validator("age", 0)
 Traceback (most recent call last):
 ...
@@ -21,4 +31,7 @@ Traceback (most recent call last):
 ...
 ValueError: distance must be greater than 0
 
-
+>>> b.integer_validator("integer")
+Traceback (most recent call last):
+...
+TypeError: integer_validator() missing 1 required positional argument: 'value'
