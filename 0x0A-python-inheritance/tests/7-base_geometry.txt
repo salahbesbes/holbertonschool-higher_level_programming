@@ -3,17 +3,17 @@ Importing the function from the module:
 
 Testing for module docstring:
     >>> m = __import__("1-my_list").__doc__
-    >>> len(m) > 1
+    >>> len(m) >= 1
     True
 
 Testing for class docstring:
     >>> c = __import__("1-my_list").MyList.__doc__
-    >>> len(c) > 1
+    >>> len(c) >= 1
     True
 
 Testing for method docstring:
 	>>> mod = __import__("1-my_list").MyList.print_sorted.__doc__
-	>>> len(mod) > 1
+	>>> len(mod) >= 1
 	True
 
 
@@ -82,3 +82,21 @@ Exception: area() is not implemented
 Traceback (most recent call last):
 ...
 TypeError: area() takes 1 positional argument but 2 were given
+
+Testing for no arguments to integer_validator:
+	 >>> bg.integer_validator()
+	 Traceback (most recent call last):
+         ...
+	 TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+Testing for only 1 argument to integer_validator:
+	 >>> bg.integer_validator("integer")
+	 Traceback (most recent call last):
+         ...
+	 TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+Testing for too many arguments:
+	 >>> bg.integer_validator("integer", 1, 2)
+	 Traceback (most recent call last):
+         ...
+	 TypeError: integer_validator() takes 3 positional arguments but 4 were given
