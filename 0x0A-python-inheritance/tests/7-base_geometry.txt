@@ -31,7 +31,7 @@ Traceback (most recent call last):
 ...
 ValueError: distance must be greater than 0
 
->>> b.integer_validator("integer")
+>>> bg.integer_validator("integer")
 Traceback (most recent call last):
 ...
 TypeError: integer_validator() missing 1 required positional argument: 'value'
