@@ -38,3 +38,12 @@ ValueError: 6 is not in list
 >>> new.insert(50, (2, 2))
 >>> new
 [(1,), 4, 3, 2, 1, (2, 2)]
+
+Testing that MyList inherits from list:
+	>>> issubclass(MyList, list)
+	True
+
+Testing for empty list:
+	>>> l = MyList()
+	>>> l.print_sorted()
+	[]
