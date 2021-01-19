@@ -3,7 +3,7 @@
 
 
 def lookup(obj):
-    """ search for all attributes in a class 
+    """ search for all attributes in a class
     args:
         obj (obj): ddd
     Return: list
