@@ -9,12 +9,13 @@ load = __import__("6-load_from_json_file").load_from_json_file
 def main(argv):
     """ create a json file from agumets given to the program """
     try:
-        old = load("add_item.json")
-        new = old + sys.argv[1:]
-        dump(new, "add_item.json")
-    except Exception as e:
-        with open("add_item.json", mode="w") as file:
-            file.write(json.dumps([]))
+        new = load("add_item.json")
+    except:
+        with open("add_item.json", mode="a") as file:
+            new = []
+    for el in sys.argv[1:]:
+        new.append(el)
+    dump(new, "add_item.json")
 
 
 if __name__ == "__main__":
