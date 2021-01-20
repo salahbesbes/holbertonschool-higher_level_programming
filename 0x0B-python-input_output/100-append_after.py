@@ -18,4 +18,4 @@ def append_after(filename="", search_string="", new_string=""):
                 f.seek(0)
             # insert text and rewrite the remainder
                 f.write(prev + new_string + remainder)
-                f.seek(count + len(new_string))
+                f.seek(count)
