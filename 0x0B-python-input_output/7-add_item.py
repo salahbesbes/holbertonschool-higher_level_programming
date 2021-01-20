@@ -15,7 +15,7 @@ def main(argv):
         dump(new, "add_item.json")
     except Exception as e:
         with open("add_item.json", mode="w") as file:
-            file.write("[]")
+            file.write(json.dumps([]))
 
 
 main(sys.argv)
