@@ -6,7 +6,9 @@ def pascal_triangle(n):
     """ create pascal triangle """
     pascal = []
     line = []
-    for iteration in range(5):
+    if n <= 0:
+        return pascal
+    for iteration in range(n):
         tmp = line[:]
         tmp.insert(0, 0)
         for i in range(iteration):
