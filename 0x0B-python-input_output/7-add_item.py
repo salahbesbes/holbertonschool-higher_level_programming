@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """ module """
-import argparse
 import json
 import sys
 dump = __import__("5-save_to_json_file").save_to_json_file
@@ -18,4 +17,5 @@ def main(argv):
             file.write(json.dumps([]))
 
 
-main(sys.argv)
+if __name__ == "__main__":
+    main(sys.argv)
