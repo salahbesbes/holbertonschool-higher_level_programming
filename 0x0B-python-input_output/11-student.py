@@ -22,5 +22,4 @@ class Student:
         return new
 
     def reload_from_json(self, json):
-        for el in vars(self):
-            vars(self)[el] = json[el]
+        vars(self).update(json)
