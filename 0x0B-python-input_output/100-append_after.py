@@ -8,14 +8,9 @@ def append_after(filename="", search_string="", new_string=""):
     line = None  # initial count of characters
     prev = ""
     with open(filename, 'r+') as f:  # open file for reading an writing
-        while line != "":
-            line = f.readline()
+        for line in f:
             prev += line
             if search_string in line:
-                # place cursor at the correct character location
-                count = f.tell()
-                remainder = f.read()  # store all character afterwards
-                f.seek(0)
-            # insert text and rewrite the remainder
-                f.write(prev + new_string + remainder)
-                f.seek(count)
+                prev += new_string
+        f.seek(0)
+        f.write(prev)
