@@ -4,6 +4,7 @@
 
 class Square:
     """ private attr size """
+
     def __init__(self, size=0):
         """ init all attributes
         args:

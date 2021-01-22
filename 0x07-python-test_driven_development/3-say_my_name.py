@@ -3,7 +3,7 @@
 
 
 def say_my_name(first_name, last_name=""):
-    """print my name
+    """ print my name
     Args:
         first_name (str): first name
         last_name (str, optional): last name. Defaults to "".
