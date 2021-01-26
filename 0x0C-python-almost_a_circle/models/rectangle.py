@@ -130,7 +130,8 @@ class Rectangle(Base):
             zipped_lists = zip(keys, args)
             new_attrs = {str(key): arg for (key, arg) in zipped_lists}
             # check for errors
-            new_attrs = {key[12:]: val for key, val in new_attrs.items()}  # cleaning '_Rectangle__'
+            # cleaning '_Rectangle__'
+            new_attrs = {key[12:]: val for key, val in new_attrs.items()}
             # passing new values to the setter
             for key, val in new_attrs.items():
                 self.__setattr__(key, val)
@@ -141,4 +142,5 @@ class Rectangle(Base):
         :return: dicts
         """
         attrs = vars(self)  # dict of attrs
-        return {key[12:]: val for key, val in attrs.items()}  # removing '_Rectangle__'
+        # removing '_Rectangle__'
+        return {key[12:]: val for key, val in attrs.items()}

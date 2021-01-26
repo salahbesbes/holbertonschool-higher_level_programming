@@ -33,22 +33,11 @@ class Base:
         :param list_objs: list
         """
         className = cls.__name__ + ".json"
-        try:
-            with open(className, mode="r") as file:
-                content = file.read()
-                new = json.loads(content)
-        except:
-            with open(className, mode="w") as file:
-                new = []
-                file.write(json.dumps(new))
-
-        for inst in list_objs:
-            # isinstance is True when Rectangle or Square inherit from Base
-            if isinstance(inst, cls):
-                with open(className, mode="w") as file:
-                    new.append(inst.to_dictionary())
-                    newJson = cls.to_json_string(new)
-                    file.write(newJson)
+        with open(className, mode="w") as file:
+            if list_objs is None:
+                list_objs = []
+            newJson = [inst.to_dictionary() for inst in list_objs]
+            file.write(cls.to_json_string(newJson))
 
     def from_json_string(json_string):
         """
@@ -87,5 +76,5 @@ class Base:
                     newInst = cls.create(**instDict)
                     arAttrs.append(newInst)
                 return arAttrs
-        except:
+        except FileNotFoundError:
             return []

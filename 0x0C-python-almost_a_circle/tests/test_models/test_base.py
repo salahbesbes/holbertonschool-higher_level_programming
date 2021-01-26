@@ -3,24 +3,26 @@
 import os
 import unittest
 from models.base import Base
-
-print(os.getcwd())
+from io import StringIO
+from unittest.mock import patch
 
 
 class TestBase(unittest.TestCase):
-    Base._Base__nb_objects = 0
+    """ test """
 
     def setUp(self):
         """ Method invoked for each test """
         Base._Base__nb_objects = 0
 
     def test_types(self):
+        """ test """
         b1 = Base()
         self.assertEqual(b1.id, 1)
         b2 = Base()
         self.assertEqual(b2.id, 2)
 
     def test_setting_id(self):
+        """ test """
         b3 = Base(True)
         self.assertEqual(b3.id, True)
         b4 = Base("string")
@@ -33,6 +35,7 @@ class TestBase(unittest.TestCase):
         self.assertEqual(b1.id, 50)
 
     def test_error(self):
+        """ test """
         with self.assertRaises(TypeError):
             b7 = Base(1, 2)
             b8 = Base(True, 2)
@@ -40,3 +43,21 @@ class TestBase(unittest.TestCase):
         with self.assertRaises(AttributeError):
             b10 = Base(1025)
             var = b10.__nb_objects
+
+    def test_save_to_file(self):
+        """ Test JSON file """
+        Base.save_to_file(None)
+        res = "[]\n"
+        with open("Base.json", "r") as file:
+            with patch('sys.stdout', new=StringIO()) as str_out:
+                print(file.read())
+                self.assertEqual(str_out.getvalue(), res)
+
+        try:
+            os.remove("Base.json")
+        except OSError:
+            pass
+
+        Base.save_to_file([])
+        with open("Base.json", "r") as file:
+            self.assertEqual(file.read(), "[]")

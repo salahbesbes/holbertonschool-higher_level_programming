@@ -13,7 +13,10 @@ class Square(Rectangle):
 
     def __str__(self):
         """ string to print """
-        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y, self.width)
+        return "[Square] ({}) {}/{} - {}".format(self.id,
+                                                 self.x,
+                                                 self.y,
+                                                 self.width)
 
     @property
     def size(self):
@@ -51,7 +54,8 @@ class Square(Rectangle):
         :return: dict of attributes in this class
         """
         attrs = vars(self)  # dict of attrs
-        new_attrs = {key[12:]: val for key, val in attrs.items()}  # removing '_Rectangle__'
+        # removing '_Rectangle__'
+        new_attrs = {key[12:]: val for key, val in attrs.items()}
         new_attrs.pop("width")  # removing width
         new_attrs.pop("height")  # removin height
         new_attrs["size"] = self.size  # adding size
