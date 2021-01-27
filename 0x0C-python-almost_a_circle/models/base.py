@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 """ module """
 import json
-import sys
-from typing import List, Any
 
 
 class Base:
