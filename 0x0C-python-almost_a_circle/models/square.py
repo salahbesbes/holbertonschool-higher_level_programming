@@ -35,17 +35,26 @@ class Square(Rectangle):
         :param args: args
         :param kwargs: kwargs
         """
-        # create a copy list of args
-        newArgs = list(args)
+        # vars(self) => get all Square and parents attribute like this
+        # {
+        # 'id': 1, '_Rectangle__width': 2, '_Rectangle__height': 2,
+        # '_Rectangle__x': 3, '_Rectangle__y': 0
+        # }
+
+        # vars(Square)
+        # {
+        # '__str__': <function Square.__str__ at 0x7f308e121b80>,
+        # 'size': <property object at 0x7f308e153130>,
+        # 'update': <function Square.update at 0x7f308e121d30> .....
+        # }
+
         attrs = ["id", "size", "x", "y"]
         if not args:  # args is empty
             for key, val in kwargs.items():
-                if key in attrs:
-                    self.__setattr__(key, val)
+                self.__setattr__(key, val)
         else:
-            zipped = zip(attrs, args)
-            att = {key: val for (key, val) in zipped}
-            for key, val in att.items():
+            zipped = dict(zip(attrs, args))
+            for key, val in zipped.items():
                 self.__setattr__(key, val)
 
     def to_dictionary(self):

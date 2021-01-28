@@ -121,9 +121,7 @@ class Rectangle(Base):
         :param args: id, width, height, x, y
         :param kwargs: only if args is empty
         """
-        attrs = vars(self)  # dict of attrs
-        if not args:  # if args is empty (args == None -> not empty)
-            # passing new values to the setter
+        if not args:
             for key, val in kwargs.items():
                 self.__setattr__(key, val)
         else:
