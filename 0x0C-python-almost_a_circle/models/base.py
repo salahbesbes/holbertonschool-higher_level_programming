@@ -5,7 +5,7 @@ import json
 
 class Base:
     """ class base """
-    __nb_objects: int = 0
+    __nb_objects = 0
 
     def __init__(self, id=None):
         """ init class  """
@@ -16,7 +16,7 @@ class Base:
             self.id = Base.__nb_objects
 
     @staticmethod
-    def to_json_string(list_dictionaries: list):
+    def to_json_string(list_dictionaries):
         """ static method that transform list of dict to str format json
         :param list_dictionaries:
         :return: str
