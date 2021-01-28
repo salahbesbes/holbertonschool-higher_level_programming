@@ -1,39 +1,32 @@
 #!/usr/bin/python3
-""" modules """
-Base = __import__("base").Base
+""" Module implementing Rectangle class """
+from models.base import Base
 
 
 class Rectangle(Base):
-    """description"""
-
+    """ A class representing a rectangle with width
+        and height, and spatial position x, y
+    """
     def __init__(self, width, height, x=0, y=0, id=None):
-        """ init class """
+        """ Instance initialization """
         super().__init__(id)
-        self.width = width
-        self.height = height
-        self.x = x
-        self.y = y
-
-    @property
-    def id(self):
-        """ getter id """
-        return self.__id
-
-    @id.setter
-    def id(self, id):
-        """ setter id """
-        if type(id) is not int:
-            raise TypeError("id must be an integer")
-        self.__id = id
+        self.__width = width
+        self.__height = height
+        self.__x = x
+        self.__y = y
 
     @property
     def width(self):
-        """ getter width"""
+        """ Getter of the private field width """
         return self.__width
 
     @width.setter
     def width(self, width):
-        """ setter for width"""
+        """ Setter of the private field width
+            Args:
+                width: positive integer
+        """
+
         if type(width) is not int:
             raise TypeError("width must be an integer")
         if width <= 0:
@@ -42,12 +35,15 @@ class Rectangle(Base):
 
     @property
     def height(self):
-        """ getter height"""
+        """ Getter of the private field height """
         return self.__height
 
     @height.setter
     def height(self, height):
-        """ setter for height"""
+        """ Setter of the private field height
+            Args:
+                height: positive integer
+        """
         if type(height) is not int:
             raise TypeError("height must be an integer")
         if height <= 0:
@@ -56,12 +52,15 @@ class Rectangle(Base):
 
     @property
     def x(self):
-        """ getter x"""
+        """ Getter of the private field x """
         return self.__x
 
     @x.setter
     def x(self, x):
-        """ setter for x"""
+        """ Setter of the private field x
+            Args:
+                x: positive integer
+        """
         if type(x) is not int:
             raise TypeError("x must be an integer")
         if x < 0:
@@ -70,12 +69,15 @@ class Rectangle(Base):
 
     @property
     def y(self):
-        """ getter y"""
+        """ Getter of the private field y """
         return self.__y
 
     @y.setter
     def y(self, y):
-        """ setter for y"""
+        """ Setter of the private field y
+            Args:
+                y: positive integer
+        """
         if type(y) is not int:
             raise TypeError("y must be an integer")
         if y < 0:
@@ -83,62 +85,43 @@ class Rectangle(Base):
         self.__y = y
 
     def area(self):
+        """ Calculate and return the rectangle's area """
         return self.__height * self.__width
 
     def display(self):
-        """ print reclangle of shome char default '#'
+        """ Prits to stdout the rectangle
+            with the character '#'
         """
-        res = ""
-        if self.__height == 0 or self.__width == 0:
-            return res
-        for i in range(self.__y):
-            res += '\n'
-        for row in range(self.__height):
-            res += ' ' * self.__x + '#' * self.__width
-            res += '\n'
-        print(res[:len(res) - 1])
+        print('\n' * self.__y, end="")
+        for i in range(self.__height):
+            print(' ' * self.__x, '#' * self.__width)
 
     def __str__(self):
+        """ Return string representation of
+            the rectangle
         """
-        print instance
-        :return: string
-        """
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(str(self.__id),
-                                                       str(self.__x),
-                                                       str(self.__y),
-                                                       str(self.__width),
-                                                       str(self.__height))
+        s = "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}"
+        return s.format(
+                           self.id,
+                           self.__x,
+                           self.__y,
+                           self.__width,
+                           self.__height
+                       )
 
     def update(self, *args, **kwargs):
-        """
-            update all attribute either args or kwargs by passing
-            then to their own setter
-            but when a new att is given its set the class.__dict__
-        :param self:
-        :param args: id, width, height, x, y
-        :param kwargs: only if args is empty
-        """
-        attrs = vars(self)  # dict of attrs
-        if not args:  # if args is empty (args == None -> not empty)
-            # passing new values to the setter
-            for key, val in kwargs.items():
-                if "_Rectangle__" + key in attrs.keys():
-                    self.__setattr__(key, val)
+        """ Assigns an argument to each attribute """
+        if len(args):
+            atts = ["id", "width", "height", "x", "y"]
+            for k, v in zip(atts, args):
+                setattr(self, k, v)
         else:
-            # create new dict from the tuple
-            keys = ["id", "width", "height", "x", "y"]
-
-            zipped_lists = zip(keys, args)
-            zipped_lists = dict(zipped_lists)
-            # passing new values to the setter
-            for key, val in zipped_lists.items():
-                self.__setattr__(key, val)
+            for k, v in kwargs.items():
+                setattr(self, k, v)
 
     def to_dictionary(self):
+        """ Returning dictionary representation
+            of instance attributes
         """
-            return new dict of attributes
-        :return: dicts
-        """
-        attrs = vars(self)  # dict of attrs
-        # removing '_Rectangle__'
-        return {key[12:]: val for key, val in attrs.items()}
+        atts = ["id", "width", "height", "x", "y"]
+        return {k: getattr(self, k) for k in atts}
