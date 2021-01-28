@@ -140,5 +140,4 @@ class Rectangle(Base):
         :return: dicts
         """
         attrs = vars(self)  # dict of attrs
-        # removing '_Rectangle__'
-        return {key[12:]: val for key, val in attrs.items()}
+        return {key: getattr(self, key) for key in attrs}

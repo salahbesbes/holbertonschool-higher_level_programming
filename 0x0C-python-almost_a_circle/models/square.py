@@ -63,10 +63,5 @@ class Square(Rectangle):
             return new dict of attributes
         :return: dict of attributes in this class
         """
-        attrs = vars(self)  # dict of attrs
-        # removing '_Rectangle__'
-        new_attrs = {key[12:]: val for key, val in attrs.items()}
-        new_attrs.pop("width")  # removing width
-        new_attrs.pop("height")  # removin height
-        new_attrs["size"] = self.size  # adding size
-        return new_attrs
+        keys = vars(self)
+        return {key: getattr(self, key) for key in keys}
