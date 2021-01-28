@@ -21,7 +21,10 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, width):
-        """ setter for width"""
+        """ setter for width
+        args:
+            width: positive integer
+        """
         if type(width) is not int:
             raise TypeError("width must be an integer")
         if width <= 0:
@@ -35,7 +38,10 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, height):
-        """ setter for height"""
+        """ setter for height
+        args:
+            height: positive integer
+        """
         if type(height) is not int:
             raise TypeError("height must be an integer")
         if height <= 0:
@@ -49,7 +55,10 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, x):
-        """ setter for x"""
+        """ setter for x
+        args:
+            x: positive integer
+        """
         if type(x) is not int:
             raise TypeError("x must be an integer")
         if x < 0:
@@ -63,7 +72,10 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, y):
-        """ setter for y"""
+        """ setter for y
+        args:
+            y: positive integer
+        """
         if type(y) is not int:
             raise TypeError("y must be an integer")
         if y < 0:
@@ -71,6 +83,7 @@ class Rectangle(Base):
         self.__y = y
 
     def area(self):
+        """ area of the rect """
         return self.__height * self.__width
 
     def display(self):
