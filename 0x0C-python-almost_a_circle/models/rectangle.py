@@ -126,14 +126,12 @@ class Rectangle(Base):
                     self.__setattr__(key, val)
         else:
             # create new dict from the tuple
-            keys = attrs.keys()
+            keys = ["id", "width", "height", "x", "y"]
+
             zipped_lists = zip(keys, args)
-            new_attrs = {str(key): arg for (key, arg) in zipped_lists}
-            # check for errors
-            # cleaning '_Rectangle__'
-            new_attrs = {key[12:]: val for key, val in new_attrs.items()}
+            zipped_lists = dict(zipped_lists)
             # passing new values to the setter
-            for key, val in new_attrs.items():
+            for key, val in zipped_lists.items():
                 self.__setattr__(key, val)
 
     def to_dictionary(self):
