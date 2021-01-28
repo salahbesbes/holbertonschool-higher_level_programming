@@ -125,8 +125,7 @@ class Rectangle(Base):
         if not args:  # if args is empty (args == None -> not empty)
             # passing new values to the setter
             for key, val in kwargs.items():
-                if "_Rectangle__" + key in attrs.keys():
-                    self.__setattr__(key, val)
+                self.__setattr__(key, val)
         else:
             # create new dict from the tuple
             keys = ["id", "width", "height", "x", "y"]
