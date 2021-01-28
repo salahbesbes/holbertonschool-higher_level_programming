@@ -139,5 +139,7 @@ class Rectangle(Base):
             return new dict of attributes
         :return: dicts
         """
-        attrs = vars(self)  # dict of attrs
+
+        attrs = ["id", "width", "height", "x", "y"]
+
         return {key: getattr(self, key) for key in attrs}

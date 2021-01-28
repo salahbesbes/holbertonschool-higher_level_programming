@@ -63,5 +63,5 @@ class Square(Rectangle):
             return new dict of attributes
         :return: dict of attributes in this class
         """
-        keys = vars(self)
-        return {key: getattr(self, key) for key in keys}
+        attrs = ["id", "size", "x", "y"]
+        return {key: getattr(self, key) for key in attrs}
