@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ modules """
-from models.base import Base
+Base = __import__("base").Base
 
 
 class Rectangle(Base):
@@ -8,7 +8,7 @@ class Rectangle(Base):
 
     def __init__(self, width, height, x=0, y=0, id=None):
         """ init class """
-        super(Rectangle, self).__init__(id)
+        super().__init__(id)
         self.width = width
         self.height = height
         self.x = x
