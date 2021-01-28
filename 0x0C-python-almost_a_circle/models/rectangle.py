@@ -104,13 +104,12 @@ class Rectangle(Base):
         print instance
         :return: string
         """
-        res = "[Rectangle] ({}) {}/{} - {}/{}"
-        return res.format(
-            self.__id,
-            self.__x,
-            self.__y,
-            self.__width,
-            self.__height
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(
+            self.id,
+            self.x,
+            self.y,
+            self.width,
+            self.height
         )
 
     def update(self, *args, **kwargs):
