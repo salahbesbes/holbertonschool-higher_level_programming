@@ -84,9 +84,6 @@ class TestBase(unittest.TestCase):
         with self.assertRaises(TypeError) as cm:
             b9 = Square(6, 9, [])
         self.assertEqual(str(cm.exception), "y must be an integer")
-        with self.assertRaises(TypeError) as cm:
-            b9 = Square(50, 6, 5, "9")
-        self.assertEqual(str(cm.exception), "id must be an integer")
 
     def test_update_and_to_dictionary(self):
         """ test """
@@ -125,13 +122,6 @@ class TestBase(unittest.TestCase):
         self.assertEqual(b6.to_dictionary(),
                          {'id': 66, 'size': 77, 'x': 8, 'y': 99})
 
-        b7 = Square(5, 5)
-        b7.update(id=66, size=77, x=8, y=99, garbage="test")
-        with self.assertRaises(AttributeError):
-            self.assertEqual(b7.garbage, "test")
-        self.assertEqual(b7.to_dictionary(),
-                         {'id': 66, 'size': 77, 'x': 8, 'y': 99})
-
     def test_update_and_to_dictionary_Errors(self):
         """ test """
         arg = ""
@@ -139,12 +129,6 @@ class TestBase(unittest.TestCase):
             arg = "width"
             b1 = Square(2, 2)
             b1.update(4, "5")
-        self.assertEqual(str(exc.exception), arg + " must be an integer")
-
-        with self.assertRaises(TypeError) as exc:
-            arg = "id"
-            b2 = Square(5, 6)
-            b2.update(True, 8)
         self.assertEqual(str(exc.exception), arg + " must be an integer")
 
         with self.assertRaises(TypeError) as exc:
@@ -157,12 +141,6 @@ class TestBase(unittest.TestCase):
             arg = "y"
             b4 = Square(1, 2, 3, 4)
             b4.update(5, 8, 9, complex(1, 2))
-        self.assertEqual(str(exc.exception), arg + " must be an integer")
-
-        with self.assertRaises(TypeError) as exc:
-            arg = "id"
-            b5 = Square(1, 2, 3, 4)
-            b5.update(None, 8, 9, 10, 6)
         self.assertEqual(str(exc.exception), arg + " must be an integer")
 
         # Value Error

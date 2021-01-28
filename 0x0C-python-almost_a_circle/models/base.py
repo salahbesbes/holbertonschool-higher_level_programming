@@ -117,3 +117,7 @@ class Base:
                 return result
         except FileNotFoundError:
             return result
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        pass
