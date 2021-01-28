@@ -51,11 +51,12 @@ class Square(Rectangle):
         attrs = ["id", "size", "x", "y"]
         if not args:  # args is empty
             for key, val in kwargs.items():
-                self.__setattr__(key, val)
+                setattr(self, key, val)
         else:
-            zipped = dict(zip(attrs, args))
-            for key, val in zipped.items():
-                self.__setattr__(key, val)
+            zipped_lists = zip(attrs, args)
+            zipped_lists = dict(zipped_lists)
+            for key, val in zipped_lists.items():
+                setattr(self, key, val)
 
     def to_dictionary(self):
         """
