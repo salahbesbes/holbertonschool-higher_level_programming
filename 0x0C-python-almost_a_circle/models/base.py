@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ module """
 import json
+import csv
 
 
 class Base:
@@ -76,3 +77,43 @@ class Base:
                 return arAttrs
         except FileNotFoundError:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """ write int scv file
+        :param list_objs: list
+        """
+        className = cls.__name__ + ".csv"
+        with open(className, 'w', encoding="utf8") as csvfile:
+            if list_objs is None:
+                list_objs = []
+            if cls.__name__ == "Rectangle":
+                attrs = ["id", "width", "height", "x", "y"]
+            elif cls.__name__ == "Square":
+                attrs = ["id", "size", "x", "y"]
+            writer = csv.DictWriter(csvfile, fieldnames=attrs)
+            for inst in list_objs:
+                writer.writerow(inst.to_dictionary())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+            :param: class
+        :return: list of instance
+        """
+        className = cls.__name__ + ".csv"
+        result = []
+        try:
+            with open(className, mode="r", encoding="utf8") as csvfile:
+                if cls.__name__ == "Rectangle":
+                    attrs = ["id", "width", "height", "x", "y"]
+                elif cls.__name__ == "Square":
+                    attrs = ["id", "size", "x", "y"]
+                reader = csv.DictReader(csvfile, fieldnames=attrs)
+                for row in reader:
+                    for key, val in row.items():
+                        row[key] = int(val)
+                    result.append(cls.create(**row))
+                return result
+        except FileNotFoundError:
+            return result
