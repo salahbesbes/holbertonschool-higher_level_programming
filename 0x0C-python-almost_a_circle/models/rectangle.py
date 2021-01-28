@@ -1,32 +1,27 @@
 #!/usr/bin/python3
-""" Module implementing Rectangle class """
+""" modules """
 from models.base import Base
 
 
 class Rectangle(Base):
-    """ A class representing a rectangle with width
-        and height, and spatial position x, y
-    """
+    """description"""
+
     def __init__(self, width, height, x=0, y=0, id=None):
-        """ Instance initialization """
+        """ init class """
         super().__init__(id)
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
 
     @property
     def width(self):
-        """ Getter of the private field width """
+        """ getter width"""
         return self.__width
 
     @width.setter
     def width(self, width):
-        """ Setter of the private field width
-            Args:
-                width: positive integer
-        """
-
+        """ setter for width"""
         if type(width) is not int:
             raise TypeError("width must be an integer")
         if width <= 0:
@@ -35,15 +30,12 @@ class Rectangle(Base):
 
     @property
     def height(self):
-        """ Getter of the private field height """
+        """ getter height"""
         return self.__height
 
     @height.setter
     def height(self, height):
-        """ Setter of the private field height
-            Args:
-                height: positive integer
-        """
+        """ setter for height"""
         if type(height) is not int:
             raise TypeError("height must be an integer")
         if height <= 0:
@@ -52,15 +44,12 @@ class Rectangle(Base):
 
     @property
     def x(self):
-        """ Getter of the private field x """
+        """ getter x"""
         return self.__x
 
     @x.setter
     def x(self, x):
-        """ Setter of the private field x
-            Args:
-                x: positive integer
-        """
+        """ setter for x"""
         if type(x) is not int:
             raise TypeError("x must be an integer")
         if x < 0:
@@ -69,15 +58,12 @@ class Rectangle(Base):
 
     @property
     def y(self):
-        """ Getter of the private field y """
+        """ getter y"""
         return self.__y
 
     @y.setter
     def y(self, y):
-        """ Setter of the private field y
-            Args:
-                y: positive integer
-        """
+        """ setter for y"""
         if type(y) is not int:
             raise TypeError("y must be an integer")
         if y < 0:
@@ -85,43 +71,65 @@ class Rectangle(Base):
         self.__y = y
 
     def area(self):
-        """ Calculate and return the rectangle's area """
         return self.__height * self.__width
 
     def display(self):
-        """ Prits to stdout the rectangle
-            with the character '#'
+        """ print reclangle of shome char default '#'
         """
-        print('\n' * self.__y, end="")
-        for i in range(self.__height):
-            print(' ' * self.__x, '#' * self.__width)
+        res = ""
+        if self.__height == 0 or self.__width == 0:
+            return res
+        for i in range(self.__y):
+            res += '\n'
+        for row in range(self.__height):
+            res += ' ' * self.__x + '#' * self.__width
+            res += '\n'
+        print(res[:len(res) - 1])
 
     def __str__(self):
-        """ Return string representation of
-            the rectangle
         """
-        s = "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}"
-        return s.format(
-                           self.id,
-                           self.__x,
-                           self.__y,
-                           self.__width,
-                           self.__height
-                       )
+        print instance
+        :return: string
+        """
+        res = "[Rectangle] ({}) {}/{} - {}/{}"
+        return res.format(
+            str(self.__id),
+            str(self.__x),
+            str(self.__y),
+            str(self.__width),
+            str(self.__height)
+        )
 
     def update(self, *args, **kwargs):
-        """ Assigns an argument to each attribute """
-        if len(args):
-            atts = ["id", "width", "height", "x", "y"]
-            for k, v in zip(atts, args):
-                setattr(self, k, v)
+        """
+            update all attribute either args or kwargs by passing
+            then to their own setter
+            but when a new att is given its set the class.__dict__
+        :param self:
+        :param args: id, width, height, x, y
+        :param kwargs: only if args is empty
+        """
+        attrs = vars(self)  # dict of attrs
+        if not args:  # if args is empty (args == None -> not empty)
+            # passing new values to the setter
+            for key, val in kwargs.items():
+                if "_Rectangle__" + key in attrs.keys():
+                    self.__setattr__(key, val)
         else:
-            for k, v in kwargs.items():
-                setattr(self, k, v)
+            # create new dict from the tuple
+            keys = ["id", "width", "height", "x", "y"]
+
+            zipped_lists = zip(keys, args)
+            zipped_lists = dict(zipped_lists)
+            # passing new values to the setter
+            for key, val in zipped_lists.items():
+                self.__setattr__(key, val)
 
     def to_dictionary(self):
-        """ Returning dictionary representation
-            of instance attributes
         """
-        atts = ["id", "width", "height", "x", "y"]
-        return {k: getattr(self, k) for k in atts}
+            return new dict of attributes
+        :return: dicts
+        """
+        attrs = vars(self)  # dict of attrs
+        # removing '_Rectangle__'
+        return {key[12:]: val for key, val in attrs.items()}
