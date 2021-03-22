@@ -3,7 +3,7 @@
 const firstArg = process.argv[2];
 const secondArg = process.argv[3];
 
-function add(firstArg, secondArg) {
+function add (firstArg, secondArg) {
   const first = parseInt(firstArg);
   const second = parseInt(secondArg);
 
