@@ -27,4 +27,4 @@ const fileB = process.argv[3];
 const dest = process.argv[4];
 let content = fs.readFileSync(fileA, 'utf8');
 content += fs.readFileSync(fileB, 'utf-8');
-fs.writeFileSync(dest, tA + tB);
+fs.writeFileSync(dest, content);
