@@ -22,7 +22,7 @@ def update_instance():
     load_state = session \
         .query(State) \
         .filter(State.id == 2) \
-        .first()
+        .one_none()
     try:
         load_state.name = "New Mexico"
         session.commit()
