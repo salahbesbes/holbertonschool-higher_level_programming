@@ -1,9 +1,11 @@
 #!/usr/bin/python3
+""" print_table_state modue """
 import MySQLdb
 import sys
 
 
 def print_table_state():
+    """ print table states """
     user = sys.argv[1]
     password = sys.argv[2]
     dataBase = sys.argv[3]
