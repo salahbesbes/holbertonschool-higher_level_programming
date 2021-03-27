@@ -23,7 +23,7 @@ def list_all_states():
         first_state = session.query(State).order_by(State.id).first()
         print('{}: {}'.format(first_state.id, first_state.name))
     except Exception:
-        pass
+        print('Nothing')
 
 
 if __name__ == "__main__":
