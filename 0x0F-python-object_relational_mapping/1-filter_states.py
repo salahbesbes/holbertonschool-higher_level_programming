@@ -11,6 +11,7 @@ def print_table_state():
     dataBase = sys.argv[3]
 
     db = MySQLdb.connect(host='localhost',
+                         port=3306,
                          user=user,
                          passwd=password,
                          db=dataBase)
