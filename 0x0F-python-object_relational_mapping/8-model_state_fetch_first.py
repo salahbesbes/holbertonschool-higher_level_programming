@@ -19,8 +19,11 @@ def list_all_states():
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    first_state = session.query(State).order_by(State.id).first()
-    print('{}: {}'.format(first_state.id, first_state.name))
+    try:
+        first_state = session.query(State).order_by(State.id).first()
+        print('{}: {}'.format(first_state.id, first_state.name))
+    except Exception:
+        pass
 
 
 if __name__ == "__main__":
