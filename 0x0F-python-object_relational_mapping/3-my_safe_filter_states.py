@@ -28,4 +28,4 @@ def safe_query():
 
 
 if __name__ == "__main__":
-    print_state()
+    safe_query()
