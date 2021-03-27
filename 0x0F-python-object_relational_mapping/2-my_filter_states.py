@@ -14,12 +14,15 @@ def print_state():
     db = MySQLdb.connect(host='localhost',
                          port=3306,
                          user=user,
-
                          passwd=password,
                          db=dataBase)
 
     cur = db.cursor()
-    cur.execute('SELECT * FROM states WHERE name = \'{}\''.format(stateName))
+    cur.execute('SELECT * \
+                FROM states \
+                WHERE name \
+                LIKE BINARY \'{}\''
+                .format(stateName))
     names = cur.fetchall()
     for name in names:
         print(name)
