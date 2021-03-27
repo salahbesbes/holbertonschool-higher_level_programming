@@ -12,6 +12,7 @@ db = MySQLdb.connect(host='localhost', user=user, passwd=password,
 cur = db.cursor()
 
 cur.execute('SELECT * FROM states WHERE name LIKE \'N%\' ORDER BY id ASC')
+
 names = cur.fetchall()
 for name in names:
     print(name)
