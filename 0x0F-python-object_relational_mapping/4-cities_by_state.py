@@ -18,7 +18,15 @@ def print_all_cities():
 
     cur = db.cursor()
 
-    cur.execute("SELECT id, name FROM cities ORDER BY id ASC")
+    # cur.execute("SELECT id, name, (SELECT name \
+    #                     FROM states \
+    #                     WHERE id = state_id) FROM cities\
+    #              ORDER BY id ASC")
+    cur.execute("SELECT cities.id, cities.name, states.name\
+                FROM cities\
+                INNER JOIN states\
+                ON cities.state_id = states.id\
+                ORDER BY id ASC")
     cities = cur.fetchall()
     for city in cities:
         print(city)
