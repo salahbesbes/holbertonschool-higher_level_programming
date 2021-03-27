@@ -26,8 +26,8 @@ def filter_cities():
                 FROM cities \
                 INNER JOIN states \
                 ON cities.state_id = states.id \
-                WHERE states.name LIKE BINARY %(stateName)s",
-                {'stateName': stateName})
+                WHERE states.name LIKE BINARY %s;",
+                (stateName,))
     cities = cur.fetchall()
     res = sep = ''
     for city in cities:
