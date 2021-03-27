@@ -22,7 +22,7 @@ def filter_cities():
     #             (SELECT id FROM states WHERE name = \'{}\' )"
     #             .format(stateName))
 
-    cur.execute(f"SELECT cities.name \
+    cur.execute("SELECT cities.name \
                 FROM cities \
                 INNER JOIN states \
                 ON cities.state_id = states.id \
