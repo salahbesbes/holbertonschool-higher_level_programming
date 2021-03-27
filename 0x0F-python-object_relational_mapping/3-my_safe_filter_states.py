@@ -19,7 +19,9 @@ def safe_query():
                          db=dataBase)
 
     cur = db.cursor()
-    cur.execute("""SELECT * FROM states WHERE name = {} """.format(stateName))
+
+    cur.execute("SELECT * FROM states WHERE name = %(username)s",
+                {'username': stateName})
     names = cur.fetchall()
     for name in names:
         print(name)
