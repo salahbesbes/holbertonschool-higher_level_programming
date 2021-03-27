@@ -5,11 +5,11 @@ import sys
 
 
 def print_all_states():
+    """ print all table """
     user = sys.argv[1]
     password = sys.argv[2]
     dataBase = sys.argv[3]
 
-    """ print all table """
     db = MySQLdb.connect(host='localhost',
                          port=3306,
                          user=user,
