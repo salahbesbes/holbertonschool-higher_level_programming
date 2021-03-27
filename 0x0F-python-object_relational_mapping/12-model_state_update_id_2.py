@@ -1,13 +1,13 @@
 #!/usr/bin/python3
-""" filter states modules """
+""" update instance modules """
 import sys
 from model_state import Base, State
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 
 
-def filter_states():
-    """ filter states by that contain "a" """
+def update_instance():
+    """ update instance where id = 2 """
 
     user = sys.argv[1]
     password = sys.argv[2]
@@ -19,14 +19,16 @@ def filter_states():
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    load_state = session.query(State).filter(State.id == 2)
-
+    load_state = session \
+        .query(State) \
+        .filter(State.id == 2) \
+        .first()
     try:
         load_state.name = "New Mexico"
         session.commit()
     except Exception:
-        return
+        pass
 
 
 if __name__ == "__main__":
-    filter_states()
+    update_instance()
