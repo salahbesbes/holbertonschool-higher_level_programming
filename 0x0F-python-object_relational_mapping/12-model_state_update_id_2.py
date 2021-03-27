@@ -22,12 +22,12 @@ def update_instance():
     load_state = session \
         .query(State) \
         .filter(State.id == 2) \
-        .one_none()
+        .one_or_none()
     try:
         load_state.name = "New Mexico"
         session.commit()
     except Exception:
-        pass
+        return
 
 
 if __name__ == "__main__":
