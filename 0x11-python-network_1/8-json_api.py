@@ -7,7 +7,6 @@ if __name__ == "__main__":
     """     handle a search request
     """
     url = 'http://0.0.0.0:5000/search_user'
-    url = 'http://848dc111ec81.b380b380.hbtn-cod.io:5000/search_user'
     try:
         letter = sys.argv[1]
     except Exception:
