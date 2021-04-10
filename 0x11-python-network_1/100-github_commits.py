@@ -25,7 +25,7 @@ if __name__ == "__main__":
         result = res.json()
         # result = sorted(result, key=get_date)
 
-        for obj in result:
+        for obj in result[:10]:
             print("{}: {}".format(
                 obj.get('sha'),
                 obj.get('commit').get('author').get('name')
