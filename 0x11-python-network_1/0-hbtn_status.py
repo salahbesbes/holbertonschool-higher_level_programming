@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 """ urllib module """
-from urllib.request import urlopen
+from urllib.request import Request, urlopen
 
 if __name__ == "__main__":
     url = 'https://intranet.hbtn.io/status'
-    with urlopen(url) as response:
+    req = Request(url)
+    with urlopen(req) as response:
         content = response.read()
 
         print("Body response:\n\
