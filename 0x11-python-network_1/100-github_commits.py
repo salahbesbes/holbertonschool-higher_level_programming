@@ -22,4 +22,4 @@ if __name__ == "__main__":
                 obj.get('commit').get('author').get('name')
             ))
     except Exception:
-        print('None')
+        pass
