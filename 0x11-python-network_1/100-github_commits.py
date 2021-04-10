@@ -16,15 +16,15 @@ if __name__ == "__main__":
     res = get(url)
 
     def get_date(element):
-        return element['commit']['author']['date']
+        return element.get('commit').get('author').get('date')
     try:
         result = res.json()
         result = sorted(result, key=get_date)
 
-        for obj in result[:10]:
+        for obj in result:
             print("{}: {}".format(
                 obj.get('sha'),
                 obj.get('commit').get('author').get('name')
             ))
     except Exception:
-        raise Exception
+        pass
