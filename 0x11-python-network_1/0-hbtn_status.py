@@ -9,8 +9,11 @@ if __name__ == "__main__":
     with urlopen(req) as response:
         content = response.read()
 
-        print("Body response:\n\
+    print("Body response:\n\
     - type: {}\n\
     - content: {}\n\
     - utf8 content: {}"
-              .format(content.__class__, content, content.decode('ascii')))
+          .format(content.__class__,
+                  content,
+                  content.decode('ascii')
+                  ))
