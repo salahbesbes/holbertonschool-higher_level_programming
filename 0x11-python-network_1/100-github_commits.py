@@ -14,12 +14,17 @@ if __name__ == "__main__":
         username, repo_name)
 
     res = get(url)
+
+    def get_date(element):
+        return element['commit']['author']['date']
     try:
         result = res.json()
-        for obj in result:
+        result = sorted(result, key=get_date)
+
+        for obj in result[:10]:
             print("{}: {}".format(
                 obj.get('sha'),
                 obj.get('commit').get('author').get('name')
             ))
     except Exception:
-        pass
+        raise Exception
