@@ -13,14 +13,12 @@ if __name__ == "__main__":
     except Exception:
         letter = ''
     res = post(url, data={'q': letter})
-    if res.status_code > 400:
-        print("Error code: {}".format(res.status_code))
-    else:
-        try:
-            result = res.json()
-            if result:
-                print("[{}] {}".format(result.get('id'), result.get('name')))
-            else:
-                print('No result')
-        except Exception:
-            print('Not a valid JSON')
+
+    try:
+        result = res.json()
+        if result:
+            print("[{}] {}".format(result.get('id'), result.get('name')))
+        else:
+            print('No result')
+    except Exception:
+        print('Not a valid JSON')
