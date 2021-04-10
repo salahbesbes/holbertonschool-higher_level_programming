@@ -18,6 +18,6 @@ if __name__ == "__main__":
             print(the_page.decode('ascii'))
 
     except URLError as error:
-        print('Error Code: {}'.format(error.code))
+        print('Error code: {}'.format(error.code))
     except HTTPError as error:
-        print('Error Code: {}'.format(error.code))
+        print('Error code: {}'.format(error.code))
