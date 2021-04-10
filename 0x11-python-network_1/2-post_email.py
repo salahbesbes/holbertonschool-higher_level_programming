@@ -19,4 +19,4 @@ if __name__ == "__main__":
     req = Request(url, data)
     with urlopen(req) as response:
         the_page = response.read()
-        print(the_page.decode('asccii'))
+        print(the_page.decode('ascii'))
