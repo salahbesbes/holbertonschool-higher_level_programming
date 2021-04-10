@@ -3,17 +3,14 @@
 from urllib.request import Request, urlopen
 
 if __name__ == "__main__":
-    url = 'https://intranet.hbtn.io/status'
+    url = 'https://intranet.hbtn.io/statuss'
     req = Request(url)
 
-    try:
-        with urlopen(req) as response:
-            content = response.read()
+    with urlopen(req) as response:
+        content = response.read()
 
-            print("Body response:\n\
-                    - type: {}\n\
-                    - content: {}\n\
-                    - utf8 content: {}\
-                    ".format(content.__class__, content, content.decode('ascii')))
-    except Exception:
-        pass
+        print("Body response:\n\
+                - type: {}\n\
+                - content: {}\n\
+                - utf8 content: {}"
+              .format(content.__class__, content, content.decode('ascii')))
