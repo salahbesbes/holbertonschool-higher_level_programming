@@ -12,6 +12,7 @@ if __name__ == "__main__":
     token = sys.argv[2]
 
     url = 'https://api.github.com/user'
+    # url = 'https://api.github.com/user/{}'.format(username)
 
     res = get(url, auth=('username', token))
     try:
