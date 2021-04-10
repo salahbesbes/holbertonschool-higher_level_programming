@@ -3,6 +3,12 @@
 from requests import post, get
 from requests.models import HTTPBasicAuth
 import sys
+
+
+def get_date(element):
+    return element.get('commit').get('author').get('date')
+
+
 if __name__ == "__main__":
     """     takes your GitHub credentials (username and password)
             and uses the GitHub API to display your id
@@ -15,11 +21,9 @@ if __name__ == "__main__":
 
     res = get(url)
 
-    def get_date(element):
-        return element.get('commit').get('author').get('date')
     try:
         result = res.json()
-        result = sorted(result, key=get_date)
+        # result = sorted(result, key=get_date)
 
         for obj in result:
             print("{}: {}".format(
