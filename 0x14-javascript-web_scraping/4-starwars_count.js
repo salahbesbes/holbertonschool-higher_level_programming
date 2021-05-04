@@ -24,14 +24,14 @@ request.get(url, (error, res) => {
     );
     */
 request.get(url, (error, res, body) => {
-  let nbFound = 0;
   if (error) console.log(error);
 
   const result = JSON.parse(res.body);
 
-  result.results.forEach((film) => {
-    if (film.characters.includes('https://swapi-api.hbtn.io/api/people/18/'))
-      nbFound++;
-  });
+  const nbFound = result.results.reduce((count, movie) => {
+    return movie.characters.find((character) => character.endsWith('/18/'))
+      ? count + 1
+      : count;
+  }, 0);
   console.log(nbFound);
 });
