@@ -1,7 +1,7 @@
 #!/usr/bin/node
 /* using API to print the title film  */
 const request = require('request');
-const url = 'https://swapi-api.hbtn.io/api/films/';
+const url = process.argv[2];
 
 request.get(url, (error, res) => {
   if (error) console.log(error);
