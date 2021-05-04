@@ -29,9 +29,8 @@ request.get(url, (error, res) => {
   else {
     const result = JSON.parse(res.body);
     result.results.forEach((film) => {
-      film.characters.forEach((endPoint) => {
-        if (endPoint === 'https://swapi-api.hbtn.io/api/people/18/') nbFound++;
-      });
+      if (film.characters.includes('https://swapi-api.hbtn.io/api/people/18/'))
+        nbFound++;
     });
     console.log(nbFound);
   }
