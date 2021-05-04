@@ -23,7 +23,7 @@ request.get(url, (error, res) => {
       0
     );
     */
-request.get(url, (error, res) => {
+request.get(url, (error, res, body) => {
   let nbFound = 0;
   if (error) console.log(error);
 
