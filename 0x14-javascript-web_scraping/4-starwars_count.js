@@ -26,12 +26,12 @@ request.get(url, (error, res) => {
 request.get(url, (error, res) => {
   let nbFound = 0;
   if (error) console.log(error);
-  else {
-    const result = JSON.parse(res.body);
-    result.results.forEach((film) => {
-      if (film.characters.includes('https://swapi-api.hbtn.io/api/people/18/'))
-        nbFound++;
-    });
-    console.log(nbFound);
-  }
+
+  const result = JSON.parse(res.body);
+
+  result.results.forEach((film) => {
+    if (film.characters.includes('https://swapi-api.hbtn.io/api/people/18/'))
+      nbFound++;
+  });
+  console.log(nbFound);
 });
