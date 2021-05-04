@@ -10,8 +10,10 @@ request.get(url, (error, res, body) => {
     const dict = {};
 
     result.forEach((element) => {
-      if (!dict[element.userId]) dict[element.userId] = 0;
-      if (element.completed === true) dict[element.userId]++;
+      if (element.completed === true) {
+        if (!dict[element.userId]) dict[element.userId] = 0;
+        dict[element.userId]++;
+      }
     });
     console.log(dict);
   }
